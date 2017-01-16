@@ -1,0 +1,10 @@
+#imageCenter {
+    margin: 0 auto;
+    width: 100px;
+    text-align: center;
+}
+
+#pictureDrop {
+    padding: 3em 3em 3em 3em;
+    white-space: nowrap;
+}
