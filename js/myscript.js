@@ -1,23 +1,22 @@
 var canvas = document.getElementById("canvas");
-var context = canvas.getContext("2d")
-var img = document.createElement("img")
-var mouseDown = false;
-var brushColor = "rgb(0, 0, 0)"
-var hasText = true;
+var ctx = canvas.getContext("2d")
 
-var clearCanvas = function() {
-    if (hasText) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        hasText = false;
+var img = document.createElement("img")
+var imgThere = true;
+
+var wi = document.getElementById('canvas').width
+var hi = document.getElementById('canvas').height
+
+var clearImg = function() {
+    if (imgThere) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        imgThere = false;
     }
 }
 
-context.fillText("Drop an image onto the canvas", 0, 0);
-context.fillText("Click a spot to set as brush color", 0, 0)
-
 img.addEventListener("load", function() {
-    clearCanvas();
-    context.drawImage(img, 0, 0);
+    clearImg();
+    ctx.drawImage(img, 0, 0, wi, hi * img.height / img.height);
 }, false);
 
 canvas.addEventListener("dragover", function(evt) {
