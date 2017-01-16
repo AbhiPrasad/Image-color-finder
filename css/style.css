@@ -1,10 +1,23 @@
-#imageCenter {
-    margin: 0 auto;
-    width: 100px;
-    text-align: center;
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #pictureDrop {
-    padding: 3em 3em 3em 3em;
-    white-space: nowrap;
+    text-align: center;
+}
+
+.topSpace {
+    margin-top: 5%;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    background-color: lightgrey;
+}
+
+.botSpace {
+    margin-bottom: 5%;
 }

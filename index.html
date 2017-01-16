@@ -9,13 +9,25 @@
 </head>
 
 <body>
-    <div id="imageCenter">
-        <div class="center" id="pictureDrop">Drop images here</div>
-        <input type="file" id="files" name="files[]">
+    <div class="container">
+        <div class="topSpace row">
+            <div class="col-xs-6 col-md-4"> </div>
+            <div class="col-xs-6 col-md-4">
+                <div class="well" id="pictureDrop">
+                    Drop images here
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4"> </div>
+        </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <canvas id="canvas" width="300" height="200"> </canvas>
+
+
+    <script src="js/myscript.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
+<!--    <input type="file" id="files" name="files[]"> -->
