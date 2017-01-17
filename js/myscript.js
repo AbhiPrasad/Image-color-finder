@@ -66,9 +66,9 @@ function rgbToHex(r, g, b) {
 //get color from image using image data 
 var getColor = function(e) {
     var imgData = ctx.getImageData(e.layerX, e.layerY, 1, 1).data;
-    color = "rgb(" + imgData[0] + ", " + imgData[1] + ", " + imgData[2] + ")";
-    colorcanvas.fillStyle = color;
-    alert(color);
+    var filling = rgbToHex(imgData[0], imgData[1], imgData[2]);
+    document.getElementById("colorcanvas").style.background = filling;
+    document.body.style.background = filling;
 }
 
 image.addEventListener("load", drawImg, false);
