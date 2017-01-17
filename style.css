@@ -1,0 +1,43 @@
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#canvas {
+    cursor: crosshair;
+}
+
+canvas {
+    background-color: lightgrey;
+    border-width: 5px;
+    border-color: white;
+    border-style: solid;
+}
+
+#show {
+    margin-top: 2%;
+    margin-bottom: 2%
+}
+
+.topMargin {
+    margin-top: 2%;
+}
+
+.colortext {
+    margin-top: 1%;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.centercanvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.left-float {
+    float: left;
+}
