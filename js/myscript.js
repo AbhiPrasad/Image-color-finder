@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d")
 
-var img = document.createElement("img")
+var image = document.createElement("img")
 var imgThere = true;
 
 var wi = document.getElementById('canvas').width
@@ -14,29 +14,37 @@ var clearImg = function() {
     }
 }
 
-img.addEventListener("load", function() {
+var drawImg = function() {
     clearImg();
-    ctx.drawImage(img, 0, 0, wi, hi * img.height / img.height);
-}, false);
+    ctx.drawImage(image, 0, 0, wi, hi);
+}
 
-canvas.addEventListener("dragover", function(evt) {
-    evt.preventDefault();
-}, false);
+var prevDef = function(e) {
+    e.preventDefault();
+}
 
-canvas.addEventListener("drop", function(evt) {
-    var files = evt.dataTransfer.files;
+//fileDrop function adapted from https://robertnyman.com/2011/03/10/using-html5-canvas-drag-and-drop-and-file-api-to-offer-the-cure/
+var fileDrop = function(e) {
+    var files = e.dataTransfer.files;
     if (files.length > 0) {
         var file = files[0];
         if (typeof FileReader !== "undefined" && file.type.indexOf("image") != -1) {
             var reader = new FileReader();
-            reader.onload = function(evt) {
-                img.src = evt.target.result;
+            reader.onload = function(e) {
+                image.src = e.target.result;
             };
             reader.readAsDataURL(file);
         }
     }
-    evt.preventDefault();
-}, false)
+    e.preventDefault();
+}
+
+image.addEventListener("load", drawImg, false);
+
+canvas.addEventListener("dragover", prevDef, false);
+
+canvas.addEventListener("drop", fileDrop, false)
+
 
 /*
 var pictureDrop = document.getElementById('pictureDrop');
@@ -45,9 +53,9 @@ var currentPicture = false;
 pictureDrop.addEventListener('dragover', showIcon);
 pictureDrop.addEventListener('drop', dragDrop);
 
-function showIcon(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    evt.dataTransfer.dropEffect = 'copy';
+function showIcon(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
 }
 */

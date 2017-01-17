@@ -4,18 +4,15 @@
     margin-right: auto;
 }
 
-#pictureDrop {
-    text-align: center;
-}
-
-.topSpace {
-    margin-top: 5%;
+#canvas {
+    cursor: crosshair;
 }
 
 canvas {
     background-color: lightgrey;
 }
 
-.botSpace {
-    margin-bottom: 5%;
+#show {
+    margin-top: 2%;
+    margin-bottom: 2%
 }
