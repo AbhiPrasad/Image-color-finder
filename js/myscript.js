@@ -1,4 +1,5 @@
 var canvas = document.getElementById("canvas");
+var colorcanvas = document.getElementById("colorcanvas")
 var ctx = canvas.getContext("2d")
 
 var image = document.createElement("img")
@@ -7,6 +8,9 @@ var imgThere = true;
 var wi = document.getElementById('canvas').width
 var hi = document.getElementById('canvas').height
 
+var color;
+
+//clears image if there is already an image there
 var clearImg = function() {
     if (imgThere) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -14,11 +18,20 @@ var clearImg = function() {
     }
 }
 
+//draws image on canvas
 var drawImg = function() {
     clearImg();
     ctx.drawImage(image, 0, 0, wi, hi);
 }
 
+//to show icon when dropping on canvas and add copy description
+var showIcon = function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
+}
+
+//stops default behaviour of picture opening a new tab
 var prevDef = function(e) {
     e.preventDefault();
 }
@@ -39,23 +52,27 @@ var fileDrop = function(e) {
     e.preventDefault();
 }
 
-image.addEventListener("load", drawImg, false);
-
-canvas.addEventListener("dragover", prevDef, false);
-
-canvas.addEventListener("drop", fileDrop, false)
-
-
-/*
-var pictureDrop = document.getElementById('pictureDrop');
-var currentPicture = false;
-
-pictureDrop.addEventListener('dragover', showIcon);
-pictureDrop.addEventListener('drop', dragDrop);
-
-function showIcon(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    e.dataTransfer.dropEffect = 'copy';
+//from http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
 }
-*/
+
+// from http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+//get color from image using image data 
+var getColor = function(e) {
+    var imgData = ctx.getImageData(e.layerX, e.layerY, 1, 1).data;
+    color = "rgb(" + imgData[0] + ", " + imgData[1] + ", " + imgData[2] + ")";
+    colorcanvas.fillStyle = color;
+    alert(color);
+}
+
+image.addEventListener("load", drawImg, false);
+canvas.addEventListener("dragover", prevDef, false);
+canvas.addEventListener("drop", fileDrop, false);
+canvas.addEventListener('dragover', showIcon, false);
+canvas.addEventListener('mouseup', getColor, false);
