@@ -38,9 +38,8 @@ function avgColor() {
 
 
     var fill = rgbToHex(red, green, blue);
-    console.log(red);
-    console.log(green);
-    console.log(blue);
+    //  var compli = invertColorAverage(red, green, blue);
+    //  document.getElementById("averagecanvas").style.borderColor = compli;
     document.getElementById("averagecanvas").style.background = fill;
     changeAvgText(red, green, blue, fill)
 }
@@ -91,6 +90,16 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+// from http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
 //change rbg and hex text when color is chosen
 function changePickerText(imgData, filling) {
     document.getElementById("hexcolor").innerHTML = filling;
@@ -110,9 +119,16 @@ var getColor = function(e) {
 
     var imgData = ctx.getImageData(xcoord, ycoord, wi, hi).data;
     var filling = rgbToHex(imgData[0], imgData[1], imgData[2]);
+    // var compli = invertColorPick(imgData);
+    // document.getElementById("pickcanvas").style.borderColor = compli;
     document.getElementById("pickcanvas").style.background = filling;
     changePickerText(imgData, filling);
 }
+
+//function invertColorPick(data) {
+//  var r = 255;
+//}
+
 
 image.addEventListener("load", drawImg, false);
 canvas.addEventListener("dragover", prevDef, false);
