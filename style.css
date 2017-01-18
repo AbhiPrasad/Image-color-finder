@@ -1,3 +1,138 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -8,24 +143,18 @@ body {
     margin-right: auto;
 }
 
-#canvas {
+#store {
     cursor: crosshair;
+    margin-top: 2%;
 }
 
 canvas {
     background-color: lightgrey;
-    border-width: 5px;
-    border-color: white;
-    border-style: solid;
 }
 
-#show {
-    margin-top: 2%;
-    margin-bottom: 2%
-}
-
-.topMargin {
-    margin-top: 2%;
+.center-tb {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .left-float {
@@ -48,14 +177,26 @@ canvas {
     text-align: center;
 }
 
+.margins-it {
+    padding: 1% 0 1% 0;
+}
+
 #titletext {
     text-align: center;
+    margin: 0.5% 0 0.5% 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.boxy {
+    margin-bottom: 3%;
 }
 
 .colortext {
-    margin-top: 1%;
     text-align: center;
-    margin-bottom: 1%;
+    margin: 5% 0 5% 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .borderbox {
@@ -73,24 +214,23 @@ canvas {
     user-select: none;
 }
 
-
-/*
-
-
-
-#pickshow {
-    background-color: ;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+table {
+    border-collapse: collapse;
 }
 
-#averageshow {
-    background-color: ;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+td {
+    padding-right: 5em;
+    padding-left: 5em;
 }
 
-
-*/
+#footer {
+    background-color: #417A21;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 1% 0 1% 0;
+    color: white;
+    cursor: pointer;
+}

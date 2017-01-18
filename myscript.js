@@ -48,6 +48,7 @@ function avgColor() {
 var drawImg = function() {
     clearImg();
     ctx.drawImage(image, 0, 0, wi, hi);
+    document.getElementById("ttext").innerText = "Click on the image to find colors!"
     avgColor();
 }
 
