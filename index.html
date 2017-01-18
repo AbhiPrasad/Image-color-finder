@@ -4,15 +4,16 @@
 <head>
     <title> Image color finder </title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div id="titletext">
+    <div id="titletext" class="topMargin">
         <h1> Drop an Image! </h1>
     </div>
     <div id="store" class="topMargin">
-        <canvas id="canvas" class="centercanvas" width="1100" height="550"> </canvas>
+        <canvas id="canvas" class="centercanvas" width="1000" height="500"> </canvas>
     </div>
 
     <div class="left-float borderbox"> hello </div>
@@ -20,7 +21,7 @@
     <div id="picksection" class="left-float">
         <h2 class="center-text"> Chosen Color </h3>
             <div id="pickshow">
-                <canvas id="pickcanvas" class="centercanvas" width="400" height="100"></canvas>
+                <canvas id="pickcanvas" class="centercanvas" width="300" height="70"></canvas>
             </div>
             <div id="hexcolor" class="colortext">
                 HEX
@@ -34,7 +35,7 @@
     <div id="avgsection" class="right-float">
         <h2 class="center-text"> Average Color </h3>
             <div id="averageshow">
-                <canvas id="averagecanvas" class="centercanvas" width="400" height="100"></canvas>
+                <canvas id="averagecanvas" class="centercanvas" width="300" height="70"></canvas>
             </div>
             <div id="avghex" class="colortext">
                 HEX
@@ -66,5 +67,7 @@
 </body>
 
 </html>
+
+
 
 <!--    <input type="file" id="files" name="files[]"> -->

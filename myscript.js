@@ -20,18 +20,18 @@ var clearImg = function() {
 //get average color
 function avgColor() {
     var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-    var c
-    var cs = {};
     var red = 0,
         green = 0,
         blue = 0;
 
+    //collect the colors
     for (var x = 0; x < imgData.length; x += 4) {
         red += imgData[x];
         green += imgData[x + 1];
         blue += imgData[x + 2];
     }
 
+    //average out the colors
     red = Math.floor(red / (imgData.length / 4));
     green = Math.floor(green / (imgData.length / 4));
     blue = Math.floor(blue / (imgData.length / 4));
@@ -104,7 +104,11 @@ function changeAvgText(r, g, b, f) {
 
 //get color from image using image data 
 var getColor = function(e) {
-    var imgData = ctx.getImageData(e.layerX, e.layerY, 1, 1).data;
+    var rect = canvas.getBoundingClientRect();
+    var xcoord = e.clientX - rect.left;
+    var ycoord = e.clientY - rect.top;
+
+    var imgData = ctx.getImageData(xcoord, ycoord, wi, hi).data;
     var filling = rgbToHex(imgData[0], imgData[1], imgData[2]);
     document.getElementById("pickcanvas").style.background = filling;
     changePickerText(imgData, filling);
