@@ -9,22 +9,47 @@
 
 <body>
     <div id="titletext">
-        Drop an Image!
+        <h1> Drop an Image! </h1>
     </div>
     <div id="store" class="topMargin">
         <canvas id="canvas" class="centercanvas" width="1100" height="550"> </canvas>
     </div>
-    <div id="avgsection">
-        <div id="averageshow">
-            <canvas id="averagecanvas" class="centercanvas" width="400" height="100"></canvas>
-        </div>
-        <div id="hexcolor" class="colortext">
-            HEX
-        </div>
-        <div id="rgbcolor" class="colortext">
-            RGB
-        </div>
+
+    <div class="left-float borderbox"> hello </div>
+
+    <div id="picksection" class="left-float">
+        <h2 class="center-text"> Chosen Color </h3>
+            <div id="pickshow">
+                <canvas id="pickcanvas" class="centercanvas" width="400" height="100"></canvas>
+            </div>
+            <div id="hexcolor" class="colortext">
+                HEX
+            </div>
+            <div id="rgbcolor" class="colortext">
+                RGB
+            </div>
     </div>
+
+    <div class="right-float borderbox"> hello </div>
+    <div id="avgsection" class="right-float">
+        <h2 class="center-text"> Average Color </h3>
+            <div id="averageshow">
+                <canvas id="averagecanvas" class="centercanvas" width="400" height="100"></canvas>
+            </div>
+            <div id="avghex" class="colortext">
+                HEX
+            </div>
+            <div id="avgother" class="colortext">
+                RGB
+            </div>
+    </div>
+
+    <div class="borderbox">
+        hello
+    </div>
+
+
+    <!--
     <div>
         <div id="show1">
             <canvas id="colorcanvas" class="left-float" width="400" height="100"></canvas>
@@ -36,7 +61,7 @@
             <canvas id="colorcanvas" class="left-float" width="400" height="100"></canvas>
         </div>
     </div>
-
+-->
     <script src="myscript.js"></script>
 </body>
 

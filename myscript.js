@@ -5,10 +5,9 @@ var ctx = canvas.getContext("2d")
 var image = document.createElement("img")
 var imgThere = true;
 
+//canvas width and height not cssed because of scaling issues
 var wi = document.getElementById('canvas').width
 var hi = document.getElementById('canvas').height
-
-var color;
 
 //clears image if there is already an image there
 var clearImg = function() {
@@ -18,10 +17,39 @@ var clearImg = function() {
     }
 }
 
+//get average color
+function avgColor() {
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    var c
+    var cs = {};
+    var red = 0,
+        green = 0,
+        blue = 0;
+
+    for (var x = 0; x < imgData.length; x += 4) {
+        red += imgData[x];
+        green += imgData[x + 1];
+        blue += imgData[x + 2];
+    }
+
+    red = Math.floor(red / (imgData.length / 4));
+    green = Math.floor(green / (imgData.length / 4));
+    blue = Math.floor(blue / (imgData.length / 4));
+
+
+    var fill = rgbToHex(red, green, blue);
+    console.log(red);
+    console.log(green);
+    console.log(blue);
+    document.getElementById("averagecanvas").style.background = fill;
+    changeAvgText(red, green, blue, fill)
+}
+
 //draws image on canvas
 var drawImg = function() {
     clearImg();
     ctx.drawImage(image, 0, 0, wi, hi);
+    avgColor();
 }
 
 //to show icon when dropping on canvas and add copy description
@@ -63,13 +91,23 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+//change rbg and hex text when color is chosen
+function changePickerText(imgData, filling) {
+    document.getElementById("hexcolor").innerHTML = filling;
+    document.getElementById("rgbcolor").innerHTML = "rgb(" + imgData[0] + ", " + imgData[1] + ", " + imgData[2] + ")";
+}
+
+function changeAvgText(r, g, b, f) {
+    document.getElementById("avghex").innerHTML = f;
+    document.getElementById("avgother").innerHTML = "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
 //get color from image using image data 
 var getColor = function(e) {
     var imgData = ctx.getImageData(e.layerX, e.layerY, 1, 1).data;
     var filling = rgbToHex(imgData[0], imgData[1], imgData[2]);
-    document.getElementById("rgbcolor").innerHTML = "rgb(" + imgData[0] + ", " + imgData[1] + ", " + imgData[2] + ")";
-    document.getElementById("averagecanvas").style.background = filling;
-    document.getElementById("hexcolor").innerHTML = filling;
+    document.getElementById("pickcanvas").style.background = filling;
+    changePickerText(imgData, filling);
 }
 
 image.addEventListener("load", drawImg, false);

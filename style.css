@@ -24,10 +24,12 @@ canvas {
     margin-top: 2%;
 }
 
-.colortext {
-    margin-top: 1%;
-    text-align: center;
-    margin-bottom: 1%;
+.left-float {
+    float: left;
+}
+
+.right-float {
+    float: right;
 }
 
 .centercanvas {
@@ -38,17 +40,53 @@ canvas {
     display: block;
 }
 
-.left-float {
-    float: left;
+.center-text {
+    text-align: center;
 }
 
 #titletext {
     text-align: center;
 }
 
-#avgsection {
-    background-color: lightcyan;
+.colortext {
+    margin-top: 1%;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.borderbox {
+    width: 10%;
+    color: white;
+    /* unselect */
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+/*
+
+
+
+#pickshow {
+    background-color: ;
     margin: auto;
     width: 50%;
     padding: 10px;
 }
+
+#averageshow {
+    background-color: ;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+
+*/
