@@ -1,4 +1,4 @@
-# Image-color-finder
+# :camera: Image-color-finder
 Find colors of images!
 
 Still under lot's of work
